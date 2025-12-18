@@ -50,6 +50,7 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '25030532186648442');
 fbq('track', 'PageView');
+
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=25030532186648442&ev=PageView&noscript=1"
@@ -58,6 +59,7 @@ src="https://www.facebook.com/tr?id=25030532186648442&ev=PageView&noscript=1"
 </head>
 
 <body>
+
 	<!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJD4ZCH7"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -709,9 +711,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+	<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const playButtons = document.querySelectorAll('.btn-play');
+
+    playButtons.forEach(function(button) {
+      button.addEventListener('click', function () {
+        fbq('trackCustom', 'VideoPlayClicked', {
+          video_platform: 'YouTube',
+          video_url: this.getAttribute('data-src'),
+          page_section: 'Hero Video'
+        });
+      });
+    });
+  });
+</script>
 </body>
 
 </html>
+
 
 
 
